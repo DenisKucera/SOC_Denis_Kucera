@@ -1,0 +1,166 @@
+% soctepmlate unofficial - SOČ = Středoškolská odborná činnost - Czech competition
+% Author: Vojtěch Boček
+% Edit by: Jaroslav Páral
+% Version: 2018-02-12
+% Source code: https://github.com/RoboticsBrno/soctemplate/
+% Base on: http://www.jcmm.cz/cz/sablona-soc.html
+% License: CC BY 4.0
+
+\documentclass{template/socthesis}
+
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[czech]{babel}
+\usepackage{wrapfig}
+\usepackage{pdfpages}
+
+
+%\usepackage[
+%backend=bibtex,  %if we want unicode and many other features (biber is already by default)
+%style=iso-numeric, % or another iso-<style>
+%sorting=nty
+%]{biblatex}
+
+%\addbibresource{text.bib}
+%\addbibresource{literatura.bib}
+
+
+\titlecz{Řízení robota Oscar95}
+\titleen{Educational robotic arm Oscar95}
+\author{Denis Kučera}
+\field{12}
+\school{SPŠ a VOŠ Sokolská, Brno}
+\mentor{Mgr. Miroslav Burda}
+\mentorstatement{Mgr. Miroslava Burdy}
+
+% Změňte, pokud se liší
+%\region{Jihomoravský}
+%\placefooter{Brno 2017}
+
+\begin{document}
+	
+	\maketitle
+	
+	\makecopyrightstatement{V~Brně}
+	
+	\makethanks{Děkuji svému školiteli Mgr. Miroslavovi Burdovi a dále Tomášovi Rohlínkovi, Šimonovi Skládanému a Martinovi Novákovi za obětavou pomoc, podnětné připomínky a nekonečnou trpělivost, kterou mi během práce poskytovali.}
+	
+	\pagestyle{empty}
+	
+	\section*{Anotace}
+	Cílem této práce je obnovit dlouho nepoužívané robotické rameno za použití moderních technologií a udělat z něj zařízení na výuku robotiky pro studenty technických oborů.
+	
+	\subsection*{Klíčová slova}
+	robotické rameno; Oscar95; robotika; G-code; výuka robotiky; laboratorní práce
+	
+	\vspace{10mm}
+	
+	\section*{Annotation}
+	The goal of this work is restoration of old educational robotic arm, which were used in early 2000's, with help of modern technologies and make fully functional learning tool for technical subjects on high schools.
+	
+	\subsection*{Keywords}
+	Oscar95, robotics, G-code, laboratory work, robotic arm, educational robotics
+	
+	\newpage
+	\pagestyle{plain}
+	
+    \tableofcontents % vysází obsah
+	
+	%%% Začátek práce
+	\setcounter{figure}{0}
+	\setcounter{table}{0}
+	\newpage
+	
+	%%% Úvod
+	\input{text-01-uvod.tex}
+	
+	%%%
+	\input{text-02-Oscar95.tex}
+	
+	%%% 
+	\input{text-03-Hardwarove-upravy.tex}
+	
+	
+	%%% 
+	\input{text-04-Ovladani-pomoci-aplikace.tex}
+	
+	%%% 
+	\input{text-05-Kolaborativni-robot.tex}
+	
+	%%% 
+	\input{text-06-Implementace-G-codu.tex}
+	
+	%%% 
+	\input{text-07-Laboratorni-prace-z-robotiky.tex}
+	
+	%%% Závěr
+	\input{text-08-zaver.tex}
+
+    \newpage
+	\addcontentsline{toc}{section}{Literatura a další zdroje}  
+	
+	\renewcommand{\refname}{Literatura a další zdroje}
+	%\printbibliography[type=book,title={Books only}]
+	%[type=book]
+	
+	\bibliographystyle{czplain}
+	%\bibliographystyle{unsrtcz} % viz text Přehled LaTeXu unsrt
+	\bibliography{literatura}
+	
+	\newpage % někdy je potřeba, aby správně vyšlo číslování stránky se seznamem obrázků v obsahu 
+	
+	\addcontentsline{toc}{section}{Seznam obrázků} % přidá seznam obrázků do obsahu 
+	
+	\listoffigures   % seznam obrázků  
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \pagestyle{empty}
+	\newpage
+ 
+   \includepdf[pagecommand=\thispagestyle{empty} \addcontentsline{toc}{section}{Laboratorní práce}, pages=1]{1 strana.pdf}
+   \includepdf[pagecommand=\thispagestyle{empty},pages=1-4]{4 strany.pdf}
+ 
+	
+    \section*{Další přílohy}
+\enlargethispage{40mm}
+    %\vspace{-50mm}
+        \begin{wrapfigure}{c}{\textwidth}
+		\begin{center}
+			\includegraphics[scale=0.75]{img/oscar_old.jpg}
+			\caption{Poslední laboratorní práce s Oscarem95 \cite{Laborka-2009}}
+			\label{fig:oscar_old}
+		\end{center}
+		\vspace{-2mm}
+	\end{wrapfigure}
+	
+	\addcontentsline{toc}{section}{Další přílohy} % přidá tuto položku do obsahu
+	% zde budou další přílohy 
+	
+	%Například grafy, schémata a nebo  obrázky na celou stránku. 
+	
+	%\newpage
+	%\addcontentsline{toc}{section}{Literatura a další zdroje}  
+
+    
+ 
+	%\renewcommand{\refname}{Literatura a další zdroje}
+	%\printbibliography[type=book,title={Books only}]
+	%[type=book]
+	
+	%\bibliographystyle{czplain}
+	%\bibliographystyle{unsrtcz} % viz text Přehled LaTeXu unsrt
+	%\bibliography{literatura}
+    % \printbibliography[title={Seznam literatury, pramenů a internetových zdrojů}]    
+	
+	%\listoffigures
+	%\addcontentsline{toc}{section}{Seznam obrázků}
+	
+	%\listoftables
+	%\addcontentsline{toc}{section}{Seznam tabulek}
+	
+	%\listoflistedequation
+	%\addcontentsline{toc}{section}{Seznam rovnic}
+	
+\end{document}

@@ -1,0 +1,26 @@
+\chapter{Ovládání pomocí aplikace}
+Součástí každého moderního zařízení je umožnění řízení z mobilního telefonu. Jak již bylo zmíněno Oscar95 byl původně řízen speciálním ovladačem. Podobný ovladač jsem měl v plánu přidat také. Bylo by ale zbytečné mít v dnešní době podobný ovladač. Zjistil jsem, že existuje aplikace RBcontroller a prostředí RBGridUI vyvinuté Robotárnou, pobočkou DDM Helceletova. Rozhodl jsem proto implementovat do projektu tyto moderní prvky. Vize byla taková, že by student mohl kompletně řídit Oscara95 z telefonu nebo PC. V reálném čase by student mohl řídit pohyb robota, kontrolovat jeho pozici a případně ukládat dané souřadnice do mezipaměti a vytvořit tím souvislou trasu pohybu pro robotické rameno. Následně by student tuto trasu mohl upravovat a přidávat do ní nové body. \cite{RBController}
+\section{Představení RBGridUI}
+RBCgridUI je rozhraní vyvinuté také Robotárnou, které zprostředkovává 
+komunikaci mezi mobilní aplikací a mikrokontrolérem ESP32. Komunikace probíhá 
+pomocí wifi, nebo bluetooth připojení. Celé prostředí funguje za použití wifi síťového protokolu a webserveru běžícího na ESP32, na který 
+se uživatel s aplikací připojuje. Tento webserver pracuje na samostatném jádře procesoru. Na 
+druhém jádru se provádí hlavní program. Hlavní program potom načítá vzhled a funkce 
+definované uživatelem v knihovně \textit{layout.hpp}. Velkou výhodou je možnost navrhnout si rozhraní pro ovládání robota uži\-va\-tel\-sky. K tomu slouží internetová stránka, ve které si lze svůj vlastní layout snadno vytvořit 
+pomocí přidávání různých funkčních prvků. Celé schéma si následně můžeme upravit sami 
+pomocí přidání vlastních stylů. Následně algoritmus vygeneruje kód, který pak stačí už jen vložit 
+do správné složky. Práce s tímto prostředím je velmi jednoduchá a efektivní. \cite{RBGridUI}
+
+
+\begin{figure}
+		\begin{center}
+			\includegraphics[scale=0.5]{img/rbgridui.jpg}
+			\caption{Vzhled vytvořeného prostředí aplikace (vlastní fotografie)}
+			\label{fig:rbgridui}
+		\end{center}
+		\vspace{0mm}
+\end{figure}
+
+\section{Aplikace RBController}
+Samotná mobilní aplikace RBController je rovněž dílem Robotárny. Aplikace funguje na telefonech s operačním systémem Android a na počítačích s Windows nebo Linux. Umožňuje posílat instrukce z mobilního telefonu prostřednictvím bluetooth, nebo wifi. Prostředí aplikace je jednoduché a efektivní. Připojíte se na zařízení, vyberete si uživatele s jeho zařízením a následně aplikace spáruje uživatele se zařízením. Jedinou nevýhodou je, že aplikaci si nemůžou nainstalovat uživatelé iOS operačních systémů.  \cite{RBController}
+

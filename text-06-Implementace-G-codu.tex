@@ -1,0 +1,27 @@
+    \chapter{Implementace G-codu}Oscar95 měl jako výuková pomůcka naučit studenty programovat jednoduché příkazy v základních programovacích jazycích. Program, který byl k tomu určen je, už velmi zastaralý a pro dnešní účely prakticky nepoužitelný. Rozhodl jsem se proto místo přímého programování programovacími jazyky řídit robota zadáváním instrukcí ve formě tzv. G-codu. 
+    
+    \section{Co je G-code?}
+    G-code je vlastně svým způsobem také programovací jazyk. S tím rozdílem že místo počítačů se pomocí něj programují průmyslové stroje. Takovými průmyslovými stroji jsou například průmysloví roboti, CNC frézy a soustruhy nebo 3D tiskárny. Pomocí G-codu přijde stroji informace z počítače o tom, kam a jakým způsobem má provést daný pohyb.První zmínky o G-codu pochází z amerického Massachusettského technologického institutu, přibližně v padesátých letech minulého století. V průběhu několika následujících let se G-code hodně změnil. Přicházely stále nové technologie. Ve výrobě se začalo přecházet na průmysl třetí generace, kdy nedílnou součástí každého výrobního procesu byl i počítač. Finální standardizovaná podoba G-codu vyšla až o třicet let později. Postupně ho začaly implementovat firmy Siemens, Sinumerik, FANUC atd. Postupně se tak G-code začal stávat nedílnou součástí nově vznikajícího průmyslového odvětví. V součastnosti většina prů\-myslových strojů pracuje právě s G-codem. O tom jsem se mohl osobně přesvědčit i na mezinárodním strojírenském veletrhu v Brně. Překvapilo mě, v jaké míře se G-code používá u 3D tiskáren. 3D tiskárny zažívají v poslední době velký nárůst popularity. Ze začátku bylo jejich použití omezené a vyráběly se pouze pro větší firmy nebo výzkumná centra. Dnes už může mít 3D tiskárnu doma každý.  G-code se proto  postupně začíná dostávat i k hobby nadšencům. \cite{G-code-wiki} \cite{G-code-explained}
+    
+    	\begin{figure}
+    		\begin{center}
+    			\includegraphics[scale=0.75]{img/gcode.jpg}
+    			\caption{Ukázka G-codu \cite{G-code-foto}}
+    			\label{fig:gcode}
+    		\end{center}
+    		\vspace{-2mm}
+    	\end{figure}
+    
+    \section{Popis G-codu}
+    
+    Jak jsem již zmínil, G-code se používá převážně u průmyslových strojů mnoha různých typů. Každý G-code soubor začíná vždy znakem procenta. Následuje hlavička (header), kterou má každý výrobce trochu jinak a potom přichází na řadu písmeno G. Od toho vznikl název G-code. Za písmenem G se nachází dvojciferné číslo. Toto číslo může určovat: pracovní režim stroje, způsob vykonání daného příkazu, kalibraci, různé pokročilé konfigurace. Ve většině případů příkaz G určuje, jakým způsobem se má stroj přemístit na danou pozici. Následují souřadnice X,Y,Z. Ty určují polohu zařízení na základě Kartézské soustavy souřadnic. Můžeme se setkat i se speciální souřadnicí pro nástroj, např u CNC frézek může jít o hloubku zanoření nástroje do materiálu. Dále písmenem F se určuje rychlost. Nejčastěji bývá zadaná ve formě koeficientu základní rychlosti. Nejčastěji se rychlost udává v jednotkách mm/s. G-code soubor končí zase znakem procenta.
+    \cite{G-code-wiki} \cite{G-kód}
+    
+    \section{Nahrání G-codu do robota}
+    %\section{Prostředí Lorris toolbox}
+    Další výzvou bylo tedy vymyslet řešení, jakým způsobem přizpůsobit G-code konkrétně Oscarovi. Následně vyřešit, jak G-code nahrát z PC do mikrokontroléru. Pro nahrání G-codu do robota jsem se rozhodl použít prostředí Lorris Toolbox. Lorris Toolbox je multifunkční nástroj určený pro komunikaci s různými mikrokontroléry, který byl realizován bývalým studentem naší školy Vojtěchem Bočkem. Pracuje na počítačích s operačnímy systémy Windows a Linux. Lorris pomáhá při vývoji, ladění a řízení elektronických zařízení všeho druhu, například mikrokontrolérů a  robotů.
+    Lorris obsahuje čtyři nástroje: \textit{analyzér}, \textit{programátor}, \textit{terminál} a \textit{proxy}. My si pro nahrání G-codu do robota vystačíme s analyzérem a případně terminálem. Náhrávání probíhá pomocí komunikace přes USB sériovou linku s mikrokontrolérem. Z počítače pošleme informace ze zpracovaného textového souboru pomocí analyzéru v programu Lorris. Do Lorris jsme ještě před tím nahráli speciální script, který dokáže data z textového souboru převést na data pro mikrokontrolér. Data z mikrokontroléru si můžeme následně ověřit v terminálu. \cite{bibtex:Lorris}
+    
+    
+    
+    

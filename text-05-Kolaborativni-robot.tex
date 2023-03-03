@@ -1,0 +1,19 @@
+\chapter{Kolaborativní robot}
+Výukový robot by měl mít vlastnosti kolaborativního robota. Vzhledem k tomu, že dochází k přímé práci člověka s robotem, je zapotřebí brát velký ohled na bezpečnost uživatele. Studenti by při práci s výukovým robotem měli být maximálně chránění. Všechny motory by měly mít proto ochranu proti přetížení, nebo rozpoznat prudce zvýšenou zátěž. Proto jsem se rozhodl přidat následu\-jí\-cí prvky kolaborativního robota. \cite{Websy}
+\section{Detekce přetížení motorů}Prvním důležitým prvkem je kontrola zátěže motorů. TMC2209 driver, který je osazen na desce v Oscarovi, umožňuje spoustu užitečných funkcí. Jednou z nich je funkce Stallguard. Ta dokáže detekovat přetížení krokového motoru pomocí sledování natočení magnetického pole v motoru. Pokud driver detekuje přetížení, vyšle z jednoho svého vývodu impulz. TMC2209 detekuje tzv. \uv{Stall} motoru. Stall je událost, kdy se magnetické pole v motoru pootočí o 90 stupňů. Stallguard lze různě nastavovat. Jedním z parametrů je například \uv{stallguard threshold}. Tímto parametrem lze nastavit citlivost Stallguardu. V praxi to znamená, při jaké zátěži začne TMC2209 posílat pulzy. Následně v mikrokontroléru probíhá sledování pulzů. Pokud přijde daný pulz do mikrokontroléru, mikrokontrolér přeruší provádění hlavního programu a zastaví dané motory na kterých došlo ke Stallu. Výhodou tohoto systému je prakticky okamžité zastavení motorů v případě přetížení. Zároveň lze stejným způsobem vyřešit i koncové dojezdy motorů. Pokud motor v robotovi dojede na konec dané osy, dojde opět ke krátkému přetížení a v ten moment driver vyšle pulz. \cite{TMC2209} \cite{BIGTREETECH-TMC2209}
+
+\begin{figure}
+		\begin{center}
+			\includegraphics[scale=0.5]{img/TMC2209.jpg}
+			\caption{TMC2209 driver krokových motorů \cite{BIGTREETECH-TMC2209}}
+			\label{fig:TMC2209}
+		\end{center}
+		\vspace{0mm}
+\end{figure}
+
+\section{Inteligentní řízení proudu motorů}
+Další užitečnou funkcí driveru TMC2209 je \texttt{Coolstep}. Coolstep společně se Stallguardem umožňují inteligentní řízení krokových motorů. Tato technologie dokáže přizpůsobit proud motoru na základě jeho zatížení. Standardně krokové motory jedou na maximální, nebo na předem zvolený proud.
+Pokud chceme maximální výkon potřebujeme tím pádem i maximální proud. Větší proud ale při trvalém provozu způsobí větší zahřívání motorů. Zvyšuje se tím riziko požáru a zároveň se tím snižuje životnost motorů. Zahříváním také vznikají větší výkonové ztráty, z toho důvodu není toto řešení vhodné pro trvalý a efektivní provoz. Proto firma Trinamic přišla s technologií Coolstep. Stejně jako u Stallguardu se zde sleduje magnetické pole motorů. Na rozdíl od Stallguardu, Coolstep neposílá pulzy, ale přímo reguluje proudy motorů na základě nastavených parametrů. Parametry Coolstepu lze nastavit zápisem dat do registrů driveru prostřednitcvím UART komunikace s mikrokontrolérem. Data v registrech zůstanou až do dalšího resetu driverů.
+\cite{TMC2209}
+
+\section{Signalizační prvky}Poslední nedílnou součástí každého kolaborativního robota jsou signalizační prvky. Signalizace může být jak světelná, tak i zvuková. V mém případě jsem se rozhodl použít obě dvě zároveň. Signalizovat lze například zapnutí robota, zastavení na koncových dojezdech nebo přetížení motorů. Světelnou signalizaci jsem realizoval ve formě dvou LED diod vyvedených na kontrolní panel. LED diody signalizují zapnutí/vypnutí robota, stand-by režim, nebo chybu programu. Zvukovou signalizaci jsem realizoval pomocí piezo měniče. Pro různé signalizace, jsem nastavil různé frekvence tónů a délku tónu. Například při zapnutí Oscara95 dojde k zvukové signalizaci ve formě sekundového 1800Hz tónu. 

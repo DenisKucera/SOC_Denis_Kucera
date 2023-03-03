@@ -1,0 +1,47 @@
+\chapter{Laboratorní práce z robotiky}
+
+Labororní práce tvoří nedílnou a velmi důležitou součást výuky. 
+Tato forma vzdělávání je velmi interaktivní a student si může všechny teoretické poznatky prakticky vyzkoušet. Zároveň zde často není jedno dané správné řešení, student zde může být velmi kreativní a přijít například s vlastním návrhem řešení úlohy.
+
+\section{Realizace}
+Samotná realizace laboratorní práce se řídí školním řádem, studenti během ní musí dodržovat laboratorní řád na dané škole a pokyny vyučujícího. Předpoklá\-dá se, že studenti byli na začátku školního roku poučeni o bezpečnosti. Laboratorní práce bude navazovat na znalosti z předem probraných tématických okruhů. 
+Bude zařazena do výuky v návaznosti na probranou látku \textit{robotika} a \textit{PLC}. Navazující téma bude jednoduché programování mikrokontrolérů. Ideální provedení laboratorní práce je ve dvojicích, v případě nutnosti může s robotem pracovat i větší skupina studentů. Studenti budou potřebovat mobilní telefon s operačním systémem Android, nebo nootebook s operačním systémem Windows nebo Linux. Po předchozí domluvě lze zapůjčit pro práci notebook školní. Jednotlivé úlohy nejsou časově náročné. Celou laboratorní práci lze stihnout za jednu vyučovací hodinu. Nejvíce času zabere úloha improvizovaného svařovacího automatu. Méně zručným studentům tato úloha může trvat až 20 minut. Samotná inicializace robota je záležitost maximálně na 5 minut. To stejné platí i o simulované nehodě na pracovišti. Zadávání G-codu je co se týče časové náročnosti hodně individuální. Záleží jak rychle se dokážou studenti s G-codem seznámit. V poslední úloze se studenti seznamují s pohybem v souřadnicovém systému. Pro Oscara95 jsem zvolil Kartézskou soustavu souřadnic. Sférickou soustavu souřadnic jsem nevybral, protože se používají např. v zeměpisu jako zeměpisné souřadnice. Sférická soustava souřadnic je obecně vhodná spíše v problémech, které mají sférickou symetrii. Přesun na dané souřadnice jsem realizoval na základě systému relativního pozicování. Pokaždé když se rameno přemístí na danou pozici vynulují se uložené souřadnice. Rameno se tak neustále pohybuje relativně od zadávaných bodů. Do budoucna bych chtěl přidat i absolutní pozicování. V tomto případě máme pevně uložený jeden bod a ten se nemění. \cite{Kartezske-wiki} \cite{Sfericke-wiki}
+
+\begin{figure}
+		\begin{center}
+			\includegraphics[scale=0.75]{img/predni_panel.png}
+			\caption{Vzhled nového předního panelu Oscara95 (vlastní obrázek)}
+			\label{fig:predni_panel}
+		\end{center}
+		\vspace{-2mm}
+	\end{figure}
+
+\section{Zadání práce}
+
+Studenti si v laboratorní práci vyzkouší zkalibrovat robotické rameno. Otestují zároveň kolaborativní prvky robota. Například, jestli robot při spuštění vydal zvukovou a světelnou signalizaci. Následně si spočítají počet stupňů volnosti robotického ramena. Všechny tyto informace uvedou do protokolu, který budou poté zpracovávat. V případě že je robot úspěšně nastaven a připraven k provozu, může se přejít k další úloze. Studenti si vyzkouší simulovanou nehodu na pracovišti. V této úloze otestují funkci Stallguard driveru TMC2209, která dokáže při zvýšené zátěži motoru poslat informaci do mikrokontroléru a tím zastavit motor. Následující úloha slouží na otestování zručnosti a přesnosti studentů. Vyzkoušejí si řízení robota přes mobilní aplikaci případně notebook. Jejich cílem je na předem připravenou šablonu načrtnout fixem jednoduché "svary". Tím vytvoří improvizovaný svařovací automat. Výsledek poté zdokumentují a přidají jako přílohu do protokolu. V poslední úloze se seznámí s G-codem. Vyzkouší si přenos instrukcí z počítače do robotického ramena. V reálném čase uvidí výsledek svého vytvořeného programu. Forma G-codu bude odpovídat ve zjednosušené formě G-codu standardu (RS-274). Zadávané souřadnice přibližně odpovídají Kartézské soustavě souřadnic. Studenti zároveň pozorují pohyb robota v Kartézské soustavě souřadnic.  \cite{G-code-wiki}
+
+\begin{figure}
+		\begin{center}
+			\includegraphics[scale=0.25]{img/Oscarove.jpg}
+			\caption{Zprovoznění roboti (vlastní obrázek)}
+			\label{fig:Oscarove}
+		\end{center}
+		\vspace{-2mm}
+	\end{figure}
+
+\section{Slovník odborných výrazů}
+
+\begin{description}
+   \item[mikrokontrolér] -- jednočipový počítač
+   \item[driver] -- řídící jednotka 
+   \item[analyzér] -- nástroj používaný k analýze dat
+   \item[proxy] -- prostředník mezi klientem a cílovým počítačem
+    \item[pin] -- vývod součástky
+    \item[PLC] -- programovatelný logický automat
+\end{description}
+
+
+
+
+
+%\section{Zpracování protokolu}
